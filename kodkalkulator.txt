@@ -1,0 +1,143 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace kalkulator
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        string LiczbaPierwsza;
+        string LiczbaDruga;
+        char Znak = ' ';
+        Double Value = 0;
+        String operation = "";
+
+        private void Dodawanie_Click(object sender, EventArgs e)
+        {
+            Znak = '+';
+            Wyswietlacz.Text = "";
+        }
+
+        private void Odejmowanie_Click(object sender, EventArgs e)
+        {
+            Znak = '-';
+            Wyswietlacz.Text = "";
+        }
+
+        private void Mnożenie_Click(object sender, EventArgs e)
+        {
+            Znak = '*';
+            Wyswietlacz.Text = "";
+        }
+
+        private void Dzielenie_Click(object sender, EventArgs e)
+        {
+            Znak = '/';
+            Wyswietlacz.Text = "";
+        }
+
+        private void Wynik_Click(object sender, EventArgs e)
+        {
+            switch (Znak)
+            {
+                case ('+'):
+                    Wyswietlacz.Text = (int.Parse(LiczbaPierwsza) + int.Parse(LiczbaDruga)).ToString();
+                    break;
+                case ('-'):
+                    Wyswietlacz.Text = (int.Parse(LiczbaPierwsza) - int.Parse(LiczbaDruga)).ToString();
+                    break;
+                case ('*'):
+                    Wyswietlacz.Text = (int.Parse(LiczbaPierwsza) * int.Parse(LiczbaDruga)).ToString();
+                    break;
+                case ('/'):
+                    Wyswietlacz.Text = (int.Parse(LiczbaPierwsza) / int.Parse(LiczbaDruga)).ToString();
+                    break;
+            }
+
+            LiczbaPierwsza = "";
+            LiczbaDruga = "";
+            Znak = ' ';
+        }
+
+        private void b0_Click(object sender, EventArgs e)
+        {
+            Dzialanie(0);
+        }
+
+        private void b1_Click(object sender, EventArgs e)
+        {
+            Dzialanie(1);
+        }
+
+        private void b2_Click(object sender, EventArgs e)
+        {
+            Dzialanie(2);
+        }
+
+        private void b3_Click(object sender, EventArgs e)
+        {
+            Dzialanie(3);
+        }
+
+        private void b4_Click(object sender, EventArgs e)
+        {
+            Dzialanie(4);
+        }
+
+        private void b5_Click(object sender, EventArgs e)
+        {
+            Dzialanie(5);
+        }
+
+        private void b6_Click(object sender, EventArgs e)
+        {
+            Dzialanie(6);
+        }
+
+        private void b7_Click(object sender, EventArgs e)
+        {
+            Dzialanie(7);
+        }
+
+        private void b8_Click(object sender, EventArgs e)
+        {
+            Dzialanie(8);
+        }
+
+        private void b9_Click(object sender, EventArgs e)
+        {
+            Dzialanie(9);
+        }
+
+        private void Dzialanie(int liczba)
+        {
+            if (Znak == ' ')
+            {
+                LiczbaPierwsza += liczba;
+                Wyswietlacz.Text = LiczbaPierwsza;
+            }
+            else
+            {
+                LiczbaDruga += liczba;
+                Wyswietlacz.Text = LiczbaDruga;
+            }
+        }
+
+        private void wyczysc_Click(object sender, EventArgs e)
+        {
+            Wyswietlacz.Clear();
+            Value = 0;
+        }
+    }
+}
